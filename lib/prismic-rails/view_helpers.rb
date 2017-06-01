@@ -10,7 +10,7 @@ module PrismicRails
       content_tag :p, url
     end
 
-    def prismic_content
+    def prismic_content ref
       documents = PrismicRails.api.all({
         "page" => params[:page] ? params[:page] : "1",
         "page_size" => params[:page_size] ? params[:page_size] : "20",
