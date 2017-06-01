@@ -2,7 +2,7 @@ require 'prismic-rails/view_helpers'
 
 module PrismicRails
   class Railtie < Rails::Railtie
-    config.prismic = ActiveSupport::OrderedOptions.new # enable namespaced configuration in Rails environments
+    config.prismic_rails = ActiveSupport::OrderedOptions.new # enable namespaced configuration in Rails environments
 
     initializer "prismic-rails.view_helpers" do
       ActionView::Base.send :include, ViewHelpers
