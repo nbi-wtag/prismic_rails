@@ -12,7 +12,7 @@ module PrismicRails
 
     def prismic_text (ref, options = {})
       response = PrismicRails.api.query(
-        [ Predicates.at("document.type", "simple_text") ]
+        [ Prismic::Predicates.at("document.type", "simple_text") ]
       );
       response.each do |doc|
         content_tag :article, doc.as_html(Prismic::LinkResolver.new(nil))
