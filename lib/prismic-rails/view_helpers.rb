@@ -17,7 +17,7 @@ module PrismicRails
         "ref" => ref
       })
       documents.each do |doc|
-        content_tag :article, doc.as_html(Prismic::LinkResolver.new(nil))
+        content_tag :article, doc.text.as_html(Prismic::LinkResolver.new(nil))
       end
     end
 
