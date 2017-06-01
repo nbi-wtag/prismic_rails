@@ -18,7 +18,7 @@ module PrismicRails
   end
 
   def self.api
-    @api ||= Prismic.api(self.config.url, self.config.access_token)
+    Prismic.api(config('url')) #, access_token)
   end
 
 end
