@@ -1,8 +1,8 @@
 module PrismicRails
   module ViewHelpers
 
-    def pre text
-      content_tag :pre, text
+    def welcome text
+      content_tag :p, text
     end
 
   end
