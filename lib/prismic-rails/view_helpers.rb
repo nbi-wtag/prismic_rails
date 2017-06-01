@@ -1,3 +1,5 @@
+require 'prismic'
+
 module PrismicRails
   module ViewHelpers
 
