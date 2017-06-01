@@ -1,3 +1,5 @@
+require 'prismic'
+
 require "prismic-rails/version"
 require 'prismic-rails/railtie' if defined?(Rails)
 
@@ -13,6 +15,10 @@ module PrismicRails
 
   def self.configure
     yield self.config
+  end
+
+  def self.api
+    @api ||= Prismic.api(self.config.url, self.config.access_token)
   end
 
 end
