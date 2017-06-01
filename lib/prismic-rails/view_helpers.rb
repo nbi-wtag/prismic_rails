@@ -16,7 +16,9 @@ module PrismicRails
         "page_size" => params[:page_size] ? params[:page_size] : "20",
         "ref" => ref
       })
-      content_tag :p, documents
+      documents.each do |doc|
+        content_tag :article, doc.as_html(Prismic::LinkResolver.new(nil))
+      end
     end
 
   end
