@@ -37,8 +37,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 
-
-
-  gem 'prismic.io', '~> 1.4.1', require: 'prismic'
-
 end
