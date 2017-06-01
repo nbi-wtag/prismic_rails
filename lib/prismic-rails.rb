@@ -8,7 +8,7 @@ module PrismicRails
   end
 
   def self.config
-    @@config || Config.new
+    @@config ||= Config.new
   end
 
   def self.configure
