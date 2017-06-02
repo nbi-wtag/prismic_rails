@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "prismicRails"
+require "prismic-rails"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

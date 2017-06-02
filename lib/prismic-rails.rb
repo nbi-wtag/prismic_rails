@@ -1,7 +1,11 @@
 require 'prismic'
 
 require "prismic-rails/version"
-require 'prismic-rails/railtie' if defined?(Rails)
+
+if defined?(Rails)
+  require 'prismic-rails/railtie'
+  require 'generators/prismic_rails/install_generator'
+end
 
 module PrismicRails
 
