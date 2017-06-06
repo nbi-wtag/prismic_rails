@@ -1,5 +1,6 @@
-
+require 'rails/generators'
 module PrismicRails
+
   class InstallGenerator < Rails::Generators::Base
     source_root File.expand_path("../../templates", __FILE__)
 
