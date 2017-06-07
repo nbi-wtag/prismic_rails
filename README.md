@@ -1,5 +1,5 @@
 # PrismicRails
-[![Gem Version](https://badge.fury.io/fadendaten/prismic_rails.svg)](https://badge.fury.io/fadendaten/prismic_rails)
+[![Gem Version](https://badge.fury.io/rb/prismic_rails.svg)](https://badge.fury.io/rb/prismic_rails)
 [![Build Status](https://travis-ci.org/fadendaten/prismic_rails.svg?branch=master)](https://travis-ci.org/fadendaten/prismic_rails)
 [![Code Climate](https://codeclimate.com/github/fadendaten/prismic_rails.png)](https://codeclimate.com/github/fadendaten/prismic_rails)
 
