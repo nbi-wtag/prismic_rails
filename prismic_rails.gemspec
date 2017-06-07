@@ -22,20 +22,15 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "prismic.io", "~> 1.4.1"
-  spec.add_runtime_dependency 'rails'
+  spec.add_runtime_dependency 'rails', '>= 4.2', '~> 5.1'
 
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 
-  spec.add_development_dependency "rdoc"
-  spec.add_development_dependency "vcr"
-  spec.add_development_dependency "dotenv"
-  spec.add_development_dependency "faraday"
-  spec.add_development_dependency "faraday_middleware"
-  spec.add_development_dependency "webmock"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "pry-byebug"
-  spec.add_development_dependency "pry-doc"
-  spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency "rdoc", "~> 5.1.0"
+  spec.add_development_dependency "vcr", "~> 3.0.3"
+  spec.add_development_dependency "dotenv", "~> 2.2.1"
+  spec.add_development_dependency "webmock", "~> 3.0.1"
+  spec.add_development_dependency 'simplecov', "~> 0.14.1"
 end
