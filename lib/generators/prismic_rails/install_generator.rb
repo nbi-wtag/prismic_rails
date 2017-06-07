@@ -1,6 +1,8 @@
 require 'rails/generators'
+# :nodoc:
 module PrismicRails
 
+  # A custom generator to install PrismicRails in your app.
   class InstallGenerator < Rails::Generators::Base
     source_root File.expand_path("../../templates", __FILE__)
 

@@ -5,6 +5,10 @@ RSpec.describe PrismicRails do
   PRISMIC_API_URL = 'https://prismic-rails.prismic.io/api'.freeze
   PRISMIC_REF = 'WTcXUisAACoAfW4r'.freeze
 
+  it "has a version number" do
+    expect(PrismicRails::VERSION).not_to be nil
+  end
+
   context 'has a configuration' do
     it 'of the type PrismicRails::Config' do
       expect(subject.config).to be_a(PrismicRails::Config)
@@ -43,7 +47,7 @@ RSpec.describe PrismicRails do
 
   context 'has a prismic ref', :vcr do
     context 'with caching enabled' do
-      before :each do 
+      before do 
         PrismicRails.configure do |config|
           config.caching = true
         end
@@ -54,11 +58,35 @@ RSpec.describe PrismicRails do
       it 'gets the master ref of prismic' do
         expect(subject.ref).to be_eql(PRISMIC_REF)
       end
-    end
-  end
 
-  it "has a version number" do
-    expect(PrismicRails::VERSION).not_to be nil
+      it 'caching_enabled? returns true' do
+        expect(subject.caching_enabled?).to be true
+      end
+
+      it 'gets the master ref of prismic out of the cache if the api is nil' do
+        allow(Rails.cache).to receive(:fetch) { PRISMIC_REF }
+        subject.instance_variable_set('@api', nil)
+        stub_request(:any, PRISMIC_API_URL).to_return(body: "errors", status: 404)
+        expect(subject.ref).to eql(PRISMIC_REF)
+      end
+    end
+
+    context 'without caching enabled' do
+      before :each do
+        PrismicRails.configure do |config|
+          config.caching = false
+        end
+      subject.instance_variable_set('@ref', nil)
+      end
+
+      it 'caching_enabled? returns false' do
+        expect(subject.caching_enabled?).to be false
+      end
+
+      it 'gets the master ref out of the prismic api' do
+        expect(subject.ref).to eql(PRISMIC_REF);
+      end
+    end
   end
 
 end

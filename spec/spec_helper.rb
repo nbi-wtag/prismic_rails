@@ -1,12 +1,13 @@
+require 'simplecov'
 require "bundler/setup"
+SimpleCov.start
+
 require "prismic_rails"
 require 'vcr'
 require 'dotenv'
 require 'pry'
 require 'webmock/rspec'
-require 'simplecov'
 
-SimpleCov.start
 Dotenv.load
 
 RSpec.configure do |config|

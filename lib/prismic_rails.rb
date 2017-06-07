@@ -4,32 +4,36 @@ require "prismic_rails/version"
 require 'prismic_rails/railtie'
 require "prismic_rails/helpers/view_helpers.rb"
 require "prismic_rails/services/query_service.rb"
-require "prismic_rails/services/parser_service.rb"
 require "prismic_rails/services/language_service.rb"
 require "prismic_rails/content/result.rb"
 require "prismic_rails/content/document.rb"
 require "prismic_rails/content/fragment.rb"
 require "prismic_rails/content/nil_document.rb"
 
+# :nodoc:
 module PrismicRails
 
+  # A simple Config class that holds the config objects
   class Config
-    attr_accessor :url,
-      :token,
-      :client_id,
-      :client_secret,
-      :languages,
-      :caching
+    attr_accessor :url,       # Prismic API URL
+      :token,                 # Prismic API Token 
+      :client_id,             # Client ID
+      :client_secret,         # Client Secret
+      :languages,             # Language maching hash
+      :caching                # Changing enabled?
   end
 
+  # Initalize the Config class
   def self.config
     @@config ||= Config.new
   end
 
+  # Set the configs
   def self.configure
     yield self.config
   end
 
+  # Returns the Prismic::API Object or nif if prismic.io is down
   def self.api
     begin
       @api = Prismic.api(self.config.url, self.config.token)
@@ -37,11 +41,13 @@ module PrismicRails
       Prismic::API::BadPrismicResponseError,
       Prismic::API::PrismicWSAuthError,
       SocketError,
-      Net::OpenTimeout => e
+      Net::OpenTimeout
         @api = nil
     end
   end
 
+  # Get the master ref of prismic account. This is primary used to establis a
+  # got caching mechanism.
   def self.ref
     if caching_enabled?
       get_cached_ref
@@ -50,8 +56,16 @@ module PrismicRails
     end
   end
 
+  # returns if the caching is enabled
+  def self.caching_enabled?
+    PrismicRails.config.caching
+  end
+
+  private
+
+  # Get the master ref out of the rails cache if prismic is not available
   def self.get_cached_ref
-    if @api.nil?
+    if api.nil?
       @ref = Rails.cache.fetch('prismic_rails_ref')
     else
       master_ref = get_ref
@@ -60,12 +74,9 @@ module PrismicRails
     end
   end
 
+  # Get the master ref from the Prismic::API object
   def self.get_ref
-    @api.master_ref.ref
-  end
-
-  def self.caching_enabled?
-    PrismicRails.config.caching
+    api.master_ref.ref
   end
 
 end

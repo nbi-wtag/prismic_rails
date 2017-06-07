@@ -1,24 +1,50 @@
 require 'prismic'
 
+# :nodoc:
 module PrismicRails
+  # :nodoc:
   module ViewHelpers
 
-    def welcome text
-      content_tag :p, text
-    end
+    # Query prismic for a specific type
+    #
+    # ==== Examples:
+    # Query the prismic type 'blog-post' and render each document a html
+    #   <%= prismic_type 'blog-post' do |result| %>
+    #     <%- result.documents.each do |document| %>
+    #       <%= document.to_html %>
+    #     <% end %>
+    #   <% end %>
+    #
+    # Query the prismic type 'blog-post' in english
+    #   <%= prismic_type 'blog-post', lang: 'en' do |result| %>
+    #     <%- result.documents.each do |document| %>
+    #       <%= document.to_html %>
+    #     <% end %>
+    #   <% end %>
+    #
+    # Query only the title of the type 'blog-post
+    #
+    #   <%= prismic_type 'tea' do |result| %>
+    #     <%= result.find_fragment('title').to_html %>
+    #   <% end %>
+    #
+    #
+    # Supports Rails caching if the caching is enabled
+    def prismic_type(type, options = {}, &block)
 
-    def prismic_url
-      url = PrismicRails.config.url
-      content_tag :p, url
-    end
-
-    def prismic_tag(type, options = {}, &block)
-      Rails.cache.fetch [PrismicRails.ref, options] do
+      query = Proc.new do
         response = PrismicRails::QueryService.type(type, options)
-        result = PrismicRails::ParserService.new(response).result
+        result = PrismicRails::Result.new(response)
         capture(result, &block)
       end
-    end
 
+      if PrismicRails.caching_enabled?
+        Rails.cache.fetch [PrismicRails.ref, options] do
+          query.call
+        end
+      else
+        query.call
+      end
+    end
   end
 end

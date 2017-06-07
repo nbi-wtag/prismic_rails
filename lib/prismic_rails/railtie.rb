@@ -1,6 +1,8 @@
 require 'prismic_rails/helpers/view_helpers'
 
+# :nodoc:
 module PrismicRails
+  # Setup class for the custom initializer
   class Railtie < Rails::Railtie
     config.prismic_rails = ActiveSupport::OrderedOptions.new # enable namespaced configuration in Rails environments
 
