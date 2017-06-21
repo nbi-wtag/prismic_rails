@@ -5,7 +5,6 @@ SimpleCov.start
 require "prismic_rails"
 require 'vcr'
 require 'dotenv'
-require 'pry'
 require 'webmock/rspec'
 
 Dotenv.load
