@@ -3,9 +3,9 @@
 [![Build Status](https://travis-ci.org/fadendaten/prismic_rails.svg?branch=master)](https://travis-ci.org/fadendaten/prismic_rails)
 [![Code Climate](https://codeclimate.com/github/fadendaten/prismic_rails.png)](https://codeclimate.com/github/fadendaten/prismic_rails)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/prismic-rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+Library to consume API-based CMS prismic.io and to display fetched content into your Rails app.
 
-TODO: Delete this and the text above, and describe your gem
+This gem uses [prismicio/ruby-kit](https://github.com/prismicio/ruby-kit) gem to consuem Prismic API.
 
 ## Installation
 
@@ -23,20 +23,72 @@ Or install it yourself as:
 
     $ gem install prismic-rails
 
+## Configuration
+
+Copy the initializer file by running
+
+    $ rails g prismic_rails:install
+
+And then set the ENV variables you got from prismic.io.
+
+#### I18n Support
+
+prismic.io supports finer graded set of locals. To work with that we need to map
+Rails locale to the locale prismic.io recognise.
+Define the language hash as following:
+
+```ruby
+config.languages = {
+  'en' => 'en-gb',
+  'de' => 'de-ch',
+  'fr' => 'fr-ch',
+  'it' => 'it-ch',
+  }
+```
+No need to configure language hash if you don't want I18n support. English will be used by default.
+
+
+#### Caching
+
+PrismicRails uses Rails caching to fasten the query process. You can choose to usse it or not to use it.
+
+    $ config.caching = true
+
 ## Usage
 
-TODO: Write usage instructions here
+From any view of your application we can do the following
 
-## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+  
+#### Query the prismic type 'blog-post' and render each document as html
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+<%= prismic_type 'blog-post' do |result| %>
+  <%- result.documents.each do |document| %>
+    <%= document.to_html %>
+  <% end %>
+<% end %>
+```
 
-## Contributing
+#### Query the prismic type 'blog-post' in english
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/fadendaten/prismic-rails.
+```ruby
+<%= prismic_type 'blog-post', lang: 'en' do |result| %>
+  <%- result.documents.each do |document| %>
+    <%= document.to_html %>
+  <% end %>
+<% end %>
+```
 
+#### Query only the title of the type 'blog-post
+
+```ruby
+<%= prismic_type 'tea' do |result| %>
+  <%= result.find_fragment('title').to_html %>
+<% end %>
+```
+
+You can use `to_text` is case you want only the text. 
 
 ## License
 
