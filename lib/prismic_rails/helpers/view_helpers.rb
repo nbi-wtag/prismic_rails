@@ -8,7 +8,7 @@ module PrismicRails
     # Query prismic for a specific type
     #
     # ==== Examples:
-    # Query the prismic type 'blog-post' and render each document a html
+    # Query the prismic type 'blog-post' and render each document as html
     #   <% prismic_type 'blog-post' do |result| %>
     #     <%- result.documents.each do |document| %>
     #       <%= document.to_html %>

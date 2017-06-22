@@ -12,12 +12,12 @@ module PrismicRails
 
       # Query the Prismic API with a type
       # ==== Examples
-      #   PrismicRails::QueryService('blog-post')
+      #   PrismicRails::QueryService.type('blog-post')
       #
       # This returns a Prismic::Response with all the (published) documents of
       # the type 'blog-post'
       #
-      #   PrismicRails::QueryService('block-post', {lang: 'en'}
+      #   PrismicRails::QueryService.type('blog-post', {lang: 'en'}
       #
       # This returns a Prismic::Response with all the (published) documents of
       # the type 'blog-post' in english.
