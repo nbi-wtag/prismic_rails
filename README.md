@@ -5,23 +5,19 @@
 
 Library to consume API-based CMS prismic.io and to display fetched content into your Rails app.
 
-This gem uses [prismicio/ruby-kit](https://github.com/prismicio/ruby-kit) gem to consuem Prismic API.
+This gem uses [prismicio/ruby-kit](https://github.com/prismicio/ruby-kit) gem to consume Prismic API.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'prismic-rails'
+gem 'prismic_rails', git: 'git@github.com:fadendaten/prismic_rails.git'
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install prismic-rails
 
 ## Configuration
 
@@ -56,7 +52,7 @@ PrismicRails uses Rails caching to fasten the query process. You can choose to u
 
 ## Usage
 
-From any view of your application we can do the following
+From any view of your application we can do the followings:
 
 
   
