@@ -6,10 +6,10 @@ module PrismicRails
   # E.g. If your rails app support the locales :en, :de and :fr and you want to
   # support this locales with your prismic content you have to match this
   # locals.
-  # In Prismic you have the posibility to define a finer graded set of locals,
+  # In Prismic you have the possibility to define a finer graded set of locals,
   # e.g. 'en-gb', 'en-us', 'de-de', 'de-ch' and so on.
-  # Unfortunatly Prismic does not support a wildecard query on the locals, so we
-  # solve this problem by setting up a matching logic.
+  # Unfortunately Prismic does not support a wildcard query on the locals, so we
+  # have solved this problem by setting up a matching logic.
   #
   # You can define the matching logic in your PrismicRails configureation.
   class LanguageService
@@ -17,8 +17,8 @@ module PrismicRails
     # Stores the given locale
     attr_accessor :locale
 
-    # Call the PrismicRails::LanguageService with a i18n locale form rails. The
-    # PrismicRails::LanguageService tries to match it into a prismic local.
+    # Calls the PrismicRails::LanguageService with a i18n locale form rails. The
+    # PrismicRails::LanguageService tries to match it into a prismic locale.
     def self.call(locale)
       new(locale).match()
     end

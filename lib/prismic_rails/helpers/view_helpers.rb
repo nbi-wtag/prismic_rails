@@ -9,14 +9,14 @@ module PrismicRails
     #
     # ==== Examples:
     # Query the prismic type 'blog-post' and render each document a html
-    #   <%= prismic_type 'blog-post' do |result| %>
+    #   <% prismic_type 'blog-post' do |result| %>
     #     <%- result.documents.each do |document| %>
     #       <%= document.to_html %>
     #     <% end %>
     #   <% end %>
     #
     # Query the prismic type 'blog-post' in english
-    #   <%= prismic_type 'blog-post', lang: 'en' do |result| %>
+    #   <% prismic_type 'blog-post', lang: 'en' do |result| %>
     #     <%- result.documents.each do |document| %>
     #       <%= document.to_html %>
     #     <% end %>
@@ -24,7 +24,7 @@ module PrismicRails
     #
     # Query only the title of the type 'blog-post
     #
-    #   <%= prismic_type 'tea' do |result| %>
+    #   <% prismic_type 'tea' do |result| %>
     #     <%= result.find_fragment('title').to_html %>
     #   <% end %>
     #

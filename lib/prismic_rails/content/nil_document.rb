@@ -9,7 +9,7 @@ module PrismicRails
       @document = ''
     end
 
-    # Returns the document as save html, in this case simply an empty string
+    # Returns the document as safe html, in this case simply an empty string
     def to_html
       @document
     end
