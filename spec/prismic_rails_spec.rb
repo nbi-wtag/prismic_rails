@@ -30,13 +30,6 @@ RSpec.describe PrismicRails do
       subject.instance_variable_set('@api', nil)
     end
 
-    context 'without internet connection' do
-      it 'of the type nil' do
-        stub_request(:any, PRISMIC_API_URL).to_return(body: "errors", status: 404)
-        expect(subject.api).to be_nil
-      end
-    end
-
     context 'with internet connection' do
       it 'of the type Prismic::API', :vrc do
         expect(subject.api).to be_a(Prismic::API)
@@ -47,7 +40,7 @@ RSpec.describe PrismicRails do
 
   context 'has a prismic ref', :vcr do
     context 'with caching enabled' do
-      before do 
+      before do
         PrismicRails.configure do |config|
           config.caching = true
         end

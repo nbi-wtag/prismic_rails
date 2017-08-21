@@ -33,7 +33,7 @@ module PrismicRails
     yield self.config
   end
 
-  # Returns the Prismic::API Object or nif if prismic.io is down
+  # Returns the Prismic::API Object or nil if prismic.io is down
   def self.api
     begin
       @api = Prismic.api(self.config.url, self.config.token)
