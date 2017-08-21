@@ -46,8 +46,8 @@ module PrismicRails
     end
   end
 
-  # Get the master ref of prismic account. This is primary used to establis a
-  # got caching mechanism.
+  # Get the master ref of prismic account. This is primarily used to establish a
+  # caching mechanism.
   def self.ref
     if caching_enabled?
       get_cached_ref
