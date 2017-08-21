@@ -11,8 +11,6 @@ RSpec.describe PrismicRails::QueryService do
       it 'should return a prismic response' do
         expect(subject.type('text')).to be_a(Prismic::Response)
       end
-
-      it '
     end
   end
 
