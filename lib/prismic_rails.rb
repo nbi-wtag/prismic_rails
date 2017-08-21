@@ -61,8 +61,6 @@ module PrismicRails
     PrismicRails.config.caching
   end
 
-  private
-
   # Get the master ref out of the rails cache if prismic is not available
   def self.get_cached_ref
     if api.nil?
