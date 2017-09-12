@@ -9,7 +9,7 @@ module PrismicRails
       @fragment = fragment
     end
 
-    # Returns the document as save html
+    # Returns the document as safe html
     def to_html
       @fragment.as_html(nil).html_safe
     end

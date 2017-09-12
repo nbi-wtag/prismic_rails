@@ -22,12 +22,12 @@ module PrismicRails
       end
     end
 
-    # Find a specific fragment in the list of all documents.
+    # Find a specific fragment in the list of all document.
     #
     # ==== Examples
     #
     #   PrismicRails::Result.find_fragment('image')
-    # This call walks through all the documents and looks for a fragment with
+    # This call walks through all the document and looks for a fragment with
     # the type 'image'.
     def find_fragment(type)
       @documents.each do |document|

@@ -6,14 +6,14 @@ PrismicRails.configure do |config|
   # Set the access token of prismic if you have one
   config.token = ENV["PRISMIC_ACCESS_TOKEN"]
 
-  # Language machting of your app locale to prismic local:
+  # Language machting of your app locale to prismic locale:
   #  Example
-  # config.languages do |l|
-  #   l.en = 'en-gb'
-  #   l.de = 'de-ch'
-  #   l.fr = 'fr-ch'
-  #   l.it = 'it-ch'
-  # end
+  # config.languages = {
+  #   'en' => 'en-gb',
+  #   'de' => 'de-ch',
+  #   'fr' => 'fr-ch',
+  #   'it' => 'it-ch'
+  # }
   #
   # Set if PrismicRails should use rails caching
   # config.caching = true
