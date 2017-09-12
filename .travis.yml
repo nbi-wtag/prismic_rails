@@ -5,7 +5,5 @@ rvm:
 before_install: gem install bundler -v 1.14.3
 
 notifications:
+  slack: fadendaten:tWoet2mtObvbwSZSyUAY93jl
   email: false
-  slack:
-    on_success: always
-    on_failure: always
