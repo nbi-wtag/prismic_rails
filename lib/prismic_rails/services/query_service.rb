@@ -19,12 +19,13 @@ module PrismicRails
       #
       #   PrismicRails::QueryService.type('blog-post', {lang: 'en'}
       #
-      # This returns a Prismic::Response with all the (published) documents of
-      # the type 'blog-post' in english.
+      # This gets all the (published) documents of
+      # the type 'blog-post' in english as a Prismic::Response and wraps it around with a PrismicRails::Result
       #
       def type(type, options = {})
         match_language options if options[:lang]
-        query(predicates(type), options)
+        response = query(predicates(type), options)
+        PrismicRails::Result.new(response)
       end
 
       private
