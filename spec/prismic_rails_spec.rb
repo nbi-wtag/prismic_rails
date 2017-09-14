@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe PrismicRails do
 
   PRISMIC_API_URL = 'https://prismic-rails.prismic.io/api'.freeze
-  PRISMIC_REF = 'WTcXUisAACoAfW4r'.freeze
+  PRISMIC_REF = 'WUohOCQAAMEX1IP2'.freeze
 
   it "has a version number" do
     expect(PrismicRails::VERSION).not_to be nil
