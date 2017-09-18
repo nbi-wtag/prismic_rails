@@ -77,7 +77,7 @@ module PrismicRails
     api.master_ref.ref
   end
 
-  def self.find(document_type, fragment_id, , options = {})
+  def self.find(document_type, fragment_id, options = {})
     if options[:lang]
       PrismicRails::QueryService.type(document_type, lang: options[:lang]).find_fragment(fragment_id)
     else
