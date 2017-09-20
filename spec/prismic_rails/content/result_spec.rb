@@ -4,8 +4,7 @@ RSpec.describe PrismicRails::Result do
 
   let(:subject) do
     VCR.use_cassette 'PrismicRails_QueryService/_type/without_language_set/should_return_a_prismic_response' do
-      response = PrismicRails::QueryService.type('text')
-      described_class.new(response)
+      PrismicRails::QueryService.type('text')
     end
   end
 
