@@ -8,7 +8,10 @@ module PrismicRails
     class << self
 
       # Constant that holds the query string to query the document type
-      DOCUMENT_TYPE = 'document.type'.freeze
+      KEY_MAPPING = {
+        uid: 'document.uid'.freeze,
+        type: 'document.type'.freeze,
+      }.freeze
 
       # Query the Prismic API with a type
       # ==== Examples
@@ -24,7 +27,12 @@ module PrismicRails
       #
       def type(type, options = {})
         match_language options if options[:lang]
-        response = query(predicates(type), options)
+
+        predicates = []
+        predicates << build_predicate(:type, type)
+        predicates << build_predicate(:uid, options.delete(:uid)) if options[:uid]
+
+        response = query(predicates, options)
         PrismicRails::Result.new(response)
       end
 
@@ -37,8 +45,10 @@ module PrismicRails
       end
 
       # Creates the Prismic::Predicates for a given type
-      def predicates type
-        Prismic::Predicates.at(DOCUMENT_TYPE, type)
+      def build_predicate(key, value)
+        query_key = KEY_MAPPING[key]
+        raise "Unknown key #{key}" unless query_key
+        Prismic::Predicates.at(query_key, value)
       end
 
       # Returns the Prismic::Api object
