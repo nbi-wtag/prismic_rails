@@ -18,7 +18,8 @@ module PrismicRails
           PrismicRails::Document.new(document)
         end
       else #Handles the case if the response is nil
-        @documents = []
+        nil_document = PrismicRails::NilDocument.new
+        @documents = [nil_document]
       end
     end
 
