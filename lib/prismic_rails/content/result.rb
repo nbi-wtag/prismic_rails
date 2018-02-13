@@ -13,7 +13,7 @@ module PrismicRails
     # ==== Attributes
     #  +response+ The response of the Prismic API query
     def initialize(response)
-      if response.results
+      if response
         @documents = response.results.map do |document|
           PrismicRails::Document.new(document)
         end
