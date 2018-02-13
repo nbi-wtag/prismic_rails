@@ -23,7 +23,7 @@ module PrismicRails
 
       def type(type, q = {}, options = {})
         q['document.type'] = type
-        response = query(q, options)
+        query(q, options)
       end
 
       def query(q, options = {})

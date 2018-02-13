@@ -16,8 +16,7 @@ module PrismicRails
   # A simple Config class that holds the config objects
   class Config
     attr_accessor :url,       # Prismic API URL
-      :token,                 # Prismic API Token 
-      :client_id,             # Client ID
+      :token,                 # Prismic API Token :client_id,             # Client ID
       :client_secret,         # Client Secret
       :languages,             # Language maching hash
       :caching                # Changing enabled?

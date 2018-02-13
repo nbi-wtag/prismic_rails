@@ -10,17 +10,13 @@ module PrismicRails
     end
 
     # Returns the document as safe html
-    def to_html
-      @fragment.as_html(nil).html_safe
+    def as_html(serializer = nil)
+      @fragment.as_html(serializer)
     end
 
     # Returns only the text of a document
-    def to_text
-      if @fragment
-        @fragment.as_text
-      else
-        ""
-      end
+    def as_text
+      @fragment.as_text
     end
 
   end

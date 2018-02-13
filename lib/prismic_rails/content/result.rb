@@ -13,11 +13,11 @@ module PrismicRails
     # ==== Attributes
     #  +response+ The response of the Prismic API query
     def initialize(response)
-      if response
+      if response && response.results && !response.results.empty?
         @documents = response.results.map do |document|
           PrismicRails::Document.new(document)
         end
-      else #Handles the case if the response is nil
+      else #Handles the case if the response is nil or empty
         nil_document = PrismicRails::NilDocument.new
         @documents = [nil_document]
       end

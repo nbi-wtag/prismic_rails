@@ -12,12 +12,12 @@ module PrismicRails
     end
 
     # Returns the document as safe html
-    def to_html
-      @document.as_html(nil).html_safe
+    def as_html(serializer = nil)
+      @document.as_html(serializer)
     end
 
     # Returns only the text of a document
-    def to_text
+    def as_text
       @document.as_text
     end
 

@@ -10,13 +10,17 @@ module PrismicRails
     end
 
     # Returns the document as safe html, in this case simply an empty string
-    def to_html
+    def as_html(serializer = nil)
       @document
     end
 
     # Returns the document as text, in this case simply an empty string
-    def to_text
+    def as_text
       @document
+    end
+
+    def find_fragment(type)
+      PrismicRails::Fragment.new(PrismicRails::NilDocument.new)
     end
 
     # Returns the type nil of the NilDocument
