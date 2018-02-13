@@ -22,18 +22,19 @@ module PrismicRails
       #
 
       def by_type(type, options = {})
-        options[:q] = {'document.type': type}
+        options[:q].merge({'document.type': type})
         query(options)
       end
 
       def query(options = {})
-        match_language options if options[:lang]
+        match_language(options) if options[:lang]
         predicates = []
         if q = options.delete(:q)
           q.each do |key, value|
             predicates << Prismic::Predicates.at(key, value)
           end
         end
+        puts predicates.inspect
         response = api.query(predicates, options)
         PrismicRails::Result.new(response)
       end
