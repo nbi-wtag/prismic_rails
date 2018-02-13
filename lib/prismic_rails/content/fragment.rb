@@ -16,7 +16,11 @@ module PrismicRails
 
     # Returns only the text of a document
     def to_text
-      @fragment.as_text
+      if @fragment
+        @fragment.as_text
+      else
+        ""
+      end
     end
 
   end
