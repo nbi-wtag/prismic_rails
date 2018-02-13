@@ -21,31 +21,24 @@ module PrismicRails
       #
       #
 
-      def type(type, q = {}, options = {})
-        q['document.type'] = type
-        query(q, options)
+      def by_type(type, options = {})
+        options[:q] = {'document.type': type}
+        query(options)
       end
 
-      def query(q, options = {})
+      def query(options = {})
         match_language options if options[:lang]
         predicates = []
-        q.each do |key, value|
-          predicates << Prismic::Predicates.at(key, value)
+        if q = options.delete(:q)
+          q.each do |key, value|
+            predicates << Prismic::Predicates.at(key, value)
+          end
         end
         response = api.query(predicates, options)
         PrismicRails::Result.new(response)
       end
 
       private
-
-      # Do the actual query against the Prismic API
-
-      # Creates the Prismic::Predicates for a given type
-      def build_predicate(key, value)
-        # query_key = KEY_MAPPING[key]
-        # raise "Unknown key #{key}" unless query_key
-        Prismic::Predicates.at(query_key, value)
-      end
 
       # Returns the Prismic::Api object
       def api

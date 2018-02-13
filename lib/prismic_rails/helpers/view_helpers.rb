@@ -33,7 +33,7 @@ module PrismicRails
     def prismic_type(type, options = {}, &block)
 
       query = Proc.new do
-        result = PrismicRails::QueryService.type(type, options)
+        result = PrismicRails::QueryService.by_type(type, options)
         capture(result, &block)
       end
 

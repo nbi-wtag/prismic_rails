@@ -14,8 +14,6 @@ module PrismicRails
       PrismicRails.configure do |config|
         config.url = app.config.prismic_rails[:url]
         config.token = app.config.prismic_rails[:token]
-        config.client_id = app.config.prismic_rails[:client_id]
-        config.client_secret = app.config.prismic_rails[:client_secret]
         config.languages = app.config.prismic_rails[:languages]
         config.caching = app.config.prismic_rails[:caching]
       end
