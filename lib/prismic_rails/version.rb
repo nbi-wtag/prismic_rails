@@ -1,5 +1,5 @@
 # :nodoc:
 module PrismicRails
   # :nodoc:
-  VERSION = "0.3.7"
+  VERSION = "0.3.8"
 end

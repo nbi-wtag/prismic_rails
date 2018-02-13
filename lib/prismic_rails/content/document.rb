@@ -26,7 +26,11 @@ module PrismicRails
     #    +type+ 'text', 'image' etc
     def find_fragment(type)
       fragment = @document.fragments[type]
-      return PrismicRails::Fragment.new(fragment) || NilDocument.new
+      if fragment
+        PrismicRails::Fragment.new(fragment)
+      else
+        NilDocument.new
+      end
     end
 
     # Tests if the document has the type type.
