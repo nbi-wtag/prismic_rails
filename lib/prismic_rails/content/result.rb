@@ -36,5 +36,13 @@ module PrismicRails
       end
     end
 
+    def first
+      @documents.first
+    end
+
+    def last
+      @documents.last
+    end
+
   end
 end

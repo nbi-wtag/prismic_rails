@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'dotenv'
-require "bundler/setup"
-require "prismic_rails"
+require 'bundler/setup'
 require 'pry'
+require 'rails'
+require 'prismic_rails'
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -19,6 +20,6 @@ PrismicRails.configure do |config|
   config.token = ENV.fetch("PRISMIC_ACCESS_TOKEN", nil)
 end
 
-require "irb"
+require 'irb'
 IRB.start(__FILE__)
 
