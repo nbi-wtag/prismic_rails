@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://prismic-rails.prismic.io/api/v1/documents/search?access_token=MC5Xb1FQa3lzQUFLMVN3RVh4.ZXo4Uu-_ve-_vXXvv73vv73vv71echEp77-9EzFx77-9MO-_vSXvv71MEO-_vScZ77-977-9XO-_vQ&page=1&pageSize=20&q=%5B%5B:d%20=%20at(my.text.select,%20%22Bar%22)%5D%5D&ref=WoQTESsAAJIxwFWJ
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=315360000
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Wed, 14 Feb 2018 11:09:16 GMT
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results_per_page":20,"results_size":1,"total_results_size":1,"total_pages":1,"next_page":null,"prev_page":null,"results":[{"id":"WoQS8CsAAJIxwFTy","uid":null,"type":"text","href":"https://prismic-rails.prismic.io/api/v1/documents/search?ref=WoQTESsAAJIxwFWJ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WoQS8CsAAJIxwFTy%22%29+%5D%5D","tags":[],"first_publication_date":"2018-02-14T10:44:04+0000","last_publication_date":"2018-02-14T10:44:04+0000","slugs":["bar-lorem"],"linked_documents":[],"lang":"en-gb","alternate_languages":[{"id":"WoQTBSsAAMpXwFVT","type":"text","lang":"de-ch"}],"data":{"text":{"title":{"type":"StructuredText","value":[{"type":"heading1","text":"Bar
+        Lorem","spans":[]}]},"rich_text":{"type":"StructuredText","value":[{"type":"paragraph","text":"Hello
+        you","spans":[]}]},"select":{"type":"Select","value":"Bar"}}}}],"version":"a5dcab6","license":"This
+        work is licensed under the Creative Commons Attribution 4.0 International
+        License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."}'
+    http_version: 
+  recorded_at: Wed, 14 Feb 2018 11:09:16 GMT
+recorded_with: VCR 3.0.3

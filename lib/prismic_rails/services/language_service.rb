@@ -1,3 +1,5 @@
+require 'active_support/core_ext/hash/indifferent_access'
+
 # :nodoc:
 module PrismicRails
   # The PrismicRails::LanguageService tries to match your i18n locale to the

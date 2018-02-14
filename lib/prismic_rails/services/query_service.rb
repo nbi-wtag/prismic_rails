@@ -7,7 +7,7 @@ module PrismicRails
     # :nodoc:
     class << self
 
-      # Query the Prismic API with a type
+      # Query the Prismic API by type
       # ==== Examples
       #   PrismicRails::QueryService.type('blog-post')
       #
@@ -18,14 +18,17 @@ module PrismicRails
       #
       # This gets all the (published) documents of
       # the type 'blog-post' in english as a Prismic::Response and wraps it around with a PrismicRails::Result
-      #
-      #
-
       def by_type(type, options = {})
-        options[:q].merge({'document.type': type})
+        type_query = {'document.type': type}
+        if options[:q]
+          options[:q].merge(type_query)
+        else
+          options[:q] = type_query
+        end
         query(options)
       end
 
+      # Query the Prismic API
       def query(options = {})
         match_language(options) if options[:lang]
         predicates = []
@@ -34,7 +37,6 @@ module PrismicRails
             predicates << Prismic::Predicates.at(key, value)
           end
         end
-        puts predicates.inspect
         response = api.query(predicates, options)
         PrismicRails::Result.new(response)
       end

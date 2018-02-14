@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe PrismicRails do
 
   PRISMIC_API_URL = 'https://prismic-rails.prismic.io/api'.freeze
-  PRISMIC_REF = 'WUohOCQAAMEX1IP2'.freeze
+  PRISMIC_REF = 'WoQTESsAAJIxwFWJ'.freeze
 
   it "has a version number" do
     expect(PrismicRails::VERSION).not_to be nil
@@ -78,39 +78,6 @@ RSpec.describe PrismicRails do
 
       it 'gets the master ref out of the prismic api' do
         expect(subject.ref).to eql(PRISMIC_REF);
-      end
-    end
-  end
-
-  describe '.find(document_type, fragment_id, options = {})' do
-    context 'language unspecified' do
-      let(:fragment) do
-        VCR.use_cassette 'PrismicRails/find/with_language_unspecified' do
-          PrismicRails.find('text', 'title')
-        end
-      end
-
-      specify { expect(fragment).to be_a(PrismicRails::Fragment) }
-
-      it 'returns fragment content in default language' do
-        expect(fragment.to_text).to eq('Lorem Ipsum 123')
-      end
-    end
-
-    context 'language specified' do
-      before(:each) do
-        allow_any_instance_of(PrismicRails::LanguageService).to receive(:match).and_return('de-ch')
-      end
-      let(:fragment) do
-        VCR.use_cassette 'PrismicRails/find/with_language_specified' do
-          PrismicRails.find('text', 'title', lang: 'de')
-        end
-      end
-
-      specify { expect(fragment).to be_a(PrismicRails::Fragment) }
-
-      it 'returns fragment content in specified language' do
-        expect(fragment.to_text).to eq('Title in de')
       end
     end
   end

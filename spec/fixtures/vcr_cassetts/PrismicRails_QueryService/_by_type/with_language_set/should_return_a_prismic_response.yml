@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://prismic-rails.prismic.io/api/v1/documents/search?access_token=MC5Xb1FQa3lzQUFLMVN3RVh4.ZXo4Uu-_ve-_vXXvv73vv73vv71echEp77-9EzFx77-9MO-_vSXvv71MEO-_vScZ77-977-9XO-_vQ&lang=*&page=1&pageSize=20&q=%5B%5B:d%20=%20at(document.type,%20%22text%22)%5D%5D&ref=WoQTESsAAJIxwFWJ
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - max-age=315360000
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Wed, 14 Feb 2018 11:04:38 GMT
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"results_per_page":20,"results_size":4,"total_results_size":4,"total_pages":1,"next_page":null,"prev_page":null,"results":[{"id":"WoQTBSsAAMpXwFVT","uid":null,"type":"text","href":"https://prismic-rails.prismic.io/api/v1/documents/search?ref=WoQTESsAAJIxwFWJ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WoQTBSsAAMpXwFVT%22%29+%5D%5D","tags":[],"first_publication_date":"2018-02-14T10:44:33+0000","last_publication_date":"2018-02-14T10:44:33+0000","slugs":["bar-lorem"],"linked_documents":[],"lang":"de-ch","alternate_languages":[{"id":"WoQS8CsAAJIxwFTy","type":"text","lang":"en-gb"}],"data":{"text":{"title":{"type":"StructuredText","value":[{"type":"heading1","text":"Bar
+        Lorem","spans":[]}]},"rich_text":{"type":"StructuredText","value":[{"type":"paragraph","text":"Hallo
+        du","spans":[]}]},"select":{"type":"Select","value":"Bar"}}}},{"id":"WoQS8CsAAJIxwFTy","uid":null,"type":"text","href":"https://prismic-rails.prismic.io/api/v1/documents/search?ref=WoQTESsAAJIxwFWJ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WoQS8CsAAJIxwFTy%22%29+%5D%5D","tags":[],"first_publication_date":"2018-02-14T10:44:04+0000","last_publication_date":"2018-02-14T10:44:04+0000","slugs":["bar-lorem"],"linked_documents":[],"lang":"en-gb","alternate_languages":[{"id":"WoQTBSsAAMpXwFVT","type":"text","lang":"de-ch"}],"data":{"text":{"title":{"type":"StructuredText","value":[{"type":"heading1","text":"Bar
+        Lorem","spans":[]}]},"rich_text":{"type":"StructuredText","value":[{"type":"paragraph","text":"Hello
+        you","spans":[]}]},"select":{"type":"Select","value":"Bar"}}}},{"id":"WTQaNCYAACUANquW","uid":null,"type":"text","href":"https://prismic-rails.prismic.io/api/v1/documents/search?ref=WoQTESsAAJIxwFWJ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WTQaNCYAACUANquW%22%29+%5D%5D","tags":[],"first_publication_date":"2017-06-04T14:33:50+0000","last_publication_date":"2018-02-14T10:43:29+0000","slugs":["lorem-ipsum","lorem-ipsum-123"],"linked_documents":[],"lang":"en-gb","alternate_languages":[{"id":"WcIPOysAAHs-ASUc","type":"text","lang":"de-ch"}],"data":{"text":{"title":{"type":"StructuredText","value":[{"type":"heading1","text":"Lorem
+        Ipsum","spans":[]}]},"rich_text":{"type":"StructuredText","value":[{"type":"paragraph","text":"Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut arcu nec justo
+        consectetur mollis vel vel magna. Proin maximus velit ex, at efficitur nulla
+        facilisis eu. Praesent luctus enim elit, a pharetra tortor vestibulum vel.
+        Donec blandit elementum fringilla. Integer sit amet est in nunc volutpat pharetra
+        pulvinar id nibh. Fusce nec nibh elit. Praesent mattis tempus quam in bibendum.","spans":[{"start":0,"end":5,"type":"strong"},{"start":6,"end":11,"type":"em"}]},{"type":"o-list-item","text":"A","spans":[]},{"type":"o-list-item","text":"B","spans":[]},{"type":"o-list-item","text":"C","spans":[]},{"type":"list-item","text":"True","spans":[]},{"type":"list-item","text":"False","spans":[]},{"type":"paragraph","text":"Github","spans":[{"start":0,"end":6,"type":"hyperlink","data":{"type":"Link.web","value":{"url":"https://github.com/fadendaten"}}}]},{"type":"paragraph","text":"","spans":[]},{"type":"image","url":"https://prismic-io.s3.amazonaws.com/prismic-rails/54326eaf909158b12496e1f71f9920350040e0d8_1136290.png","alt":null,"copyright":null,"dimensions":{"width":200,"height":200}}]},"select":{"type":"Select","value":"Foo"}}}},{"id":"WcIPOysAAHs-ASUc","uid":null,"type":"text","href":"https://prismic-rails.prismic.io/api/v1/documents/search?ref=WoQTESsAAJIxwFWJ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcIPOysAAHs-ASUc%22%29+%5D%5D","tags":[],"first_publication_date":"2017-09-20T06:48:51+0000","last_publication_date":"2017-09-20T06:48:51+0000","slugs":["title-in-de"],"linked_documents":[],"lang":"de-ch","alternate_languages":[{"id":"WTQaNCYAACUANquW","type":"text","lang":"en-gb"}],"data":{"text":{"title":{"type":"StructuredText","value":[{"type":"heading1","text":"Title
+        in de","spans":[]}]},"rich_text":{"type":"StructuredText","value":[{"type":"paragraph","text":"something
+        in german","spans":[]}]}}}}],"version":"a5dcab6","license":"This work is licensed
+        under the Creative Commons Attribution 4.0 International License. To view
+        a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."}'
+    http_version: 
+  recorded_at: Wed, 14 Feb 2018 11:04:38 GMT
+recorded_with: VCR 3.0.3

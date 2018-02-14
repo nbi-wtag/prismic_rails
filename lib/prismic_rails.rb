@@ -13,6 +13,8 @@ require "prismic_rails/content/nil_document.rb"
 # :nodoc:
 module PrismicRails
 
+  class NoPrismicAPIConnection < StandardError; end
+
   # A simple Config class that holds the config objects
   class Config
     attr_accessor :url,       # Prismic API URL
@@ -41,7 +43,7 @@ module PrismicRails
       Prismic::API::PrismicWSAuthError,
       SocketError,
       Net::OpenTimeout
-        @api = nil
+        raise NoPrismicAPIConnection
     end
   end
 
