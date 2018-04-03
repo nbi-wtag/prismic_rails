@@ -2,6 +2,7 @@
 module PrismicRails
   # The PrismicRails::Fragment is a wrapper class around Prismic::Fragment
   class Fragment
+    attr_reader :fragment
 
     # Create a new instance of PrismicRails::Fragment
     #   +fragment+ A Prismic::Fragment
