@@ -41,4 +41,7 @@ RSpec.describe PrismicRails::Document do
       end
     end
   end
+
+  specify { expect(subject.document).to be_a(Prismic::Document) }
+
 end
