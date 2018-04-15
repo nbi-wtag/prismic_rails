@@ -13,4 +13,5 @@ RSpec.describe PrismicRails::Fragment do
   specify { expect(subject).to be_a(PrismicRails::Fragment) }
   specify { expect(subject).to respond_to(:as_html) }
   specify { expect(subject).to respond_to(:as_text) }
+  specify { expect(subject.fragment).to be_a(Prismic::Fragments::StructuredText) }
 end

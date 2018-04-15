@@ -3,6 +3,7 @@ module PrismicRails
   # The PrismicRails::Document is a wrapper class around Prismic::Document to
   # support custom features like to_html, to_text and to handle nil documents.
   class Document
+    attr_reader :document
 
     # Creates a new PrismicRails::Document
     # ====
