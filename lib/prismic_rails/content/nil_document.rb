@@ -19,6 +19,12 @@ module PrismicRails
       @document
     end
 
+
+    # Returns an empty array
+    def slices
+      []
+    end
+
     def find_fragment(type)
       PrismicRails::Fragment.new(PrismicRails::NilDocument.new)
     end
