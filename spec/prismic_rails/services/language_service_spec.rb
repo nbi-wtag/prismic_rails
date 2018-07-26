@@ -23,6 +23,14 @@ RSpec.describe PrismicRails::LanguageService do
     it 'returns the matched locale' do
       expect(subject.match).to eq('en-us')
     end
+
+  end
+
+  describe '#reverse' do
+    subject { described_class.new('en-us') }
+    it 'returns the rails locale' do
+      expect(subject.reverse).to eq(:en)
+    end
   end
 
   describe '#language_hash' do

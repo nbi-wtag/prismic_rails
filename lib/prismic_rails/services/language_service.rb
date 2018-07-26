@@ -21,8 +21,12 @@ module PrismicRails
 
     # Calls the PrismicRails::LanguageService with a i18n locale form rails. The
     # PrismicRails::LanguageService tries to match it into a prismic locale.
-    def self.call(locale)
-      new(locale).match()
+    def self.call(locale, reverse: false)
+      if reverse
+        new(locale).reverse()
+      else
+        new(locale).match()
+      end
     end
 
     # Creates a instance of the class PrismicRails::LanguageService
@@ -33,6 +37,11 @@ module PrismicRails
     # Tries to match the given locale to a prismic locale
     def match
       return language_hash[@locale.to_sym] || '*'
+    end
+
+    # Tries to reverse match the prismic locale to a rails locale
+    def reverse
+      return language_hash.key(@locale)
     end
 
     # Creates the language hash out of the PrismicRails::Config
